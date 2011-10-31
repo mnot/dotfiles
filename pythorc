@@ -1,0 +1,10 @@
+import sys
+
+try:
+    import rlcompleter, readline
+    readline.parse_and_bind('tab: complete')
+    del rlcompleter, readline
+except ImportError:
+    import sys
+    sys.stderr.write("readline support not enabled.")
+    del sys

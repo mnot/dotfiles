@@ -1,0 +1,7 @@
+startup_message off
+defutf8 on
+vbell off
+#hardstatus on
+#hardstatus alwayslastline
+#hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %M-%d %0c"
+termcapinfo xterm|xterms|xterm-color|xs|rxvt ti@:te@

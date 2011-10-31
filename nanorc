@@ -1,0 +1,8 @@
+set nowrap
+set historylog
+unset backup
+#set auto-indent
+set suspend
+set nohelp
+set tabsize 4
+
