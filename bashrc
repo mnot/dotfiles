@@ -28,7 +28,7 @@ export VISUAL=nano
 export EDITOR=$VISUAL
 export PYTHONSTARTUP=$HOME/.pythonrc
 export COLORFGBG="white;black"
-export LESS="-x4"
+export LESS="-x4 -R"
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 shopt -s histappend
