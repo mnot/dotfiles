@@ -1,10 +1,20 @@
-import sys
 
+# completion
 try:
-    import rlcompleter, readline
-    readline.parse_and_bind('tab: complete')
-    del rlcompleter, readline
+  import rlcompleter, readline
+  readline.parse_and_bind('tab: complete')
+  del rlcompleter, readline
 except ImportError:
-    import sys
-    sys.stderr.write("readline support not enabled.")
-    del sys
+  import sys
+  sys.stderr.write("readline support not enabled.")
+  del sys
+    
+# object graphs
+def object_graph(name=None, depth=20):
+  import gc
+  gc.collect()
+  import objgraph 
+  if name:
+    objgraph.show_backrefs([objgraph.by_type(name)[0]], max_depth=depth)
+  else:
+    objgraph.show_most_common_types(limit=depth)
