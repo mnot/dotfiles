@@ -1,9 +1,9 @@
 
 umask 002
 
-BINLIST="$HOME/Applications /opt/local/bin /Developer/usr/bin /usr/local/bin /usr/local/*/bin /opt/*/bin"
-MANLIST="/opt/local/man /usr/local/*/man /opt/*/man"
-SBINLIST="/sbin /usr/sbin /usr/local/sbin /opt/local/sbin /usr/local/*/sbin /opt/*/sbin"
+export PATH="/usr/local/bin:/usr/local/share/python:$PATH:$HOME/Applications:/Developer/usr/bin:/opt/*/bin"
+export MANPATH="/usr/local/man:$MANPATH:/opt/*/man"
+export SPATH="/sbin:/usr/sbin:/usr/local/sbin:/opt/*/sbin"
 
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
 export saxpath='/opt/local/share/java/saxon8.jar'

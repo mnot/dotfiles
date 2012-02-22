@@ -10,20 +10,6 @@ if [ -f ${HOME}/.bashrc-local ]; then
 	source $HOME/.bashrc-local
 fi
 
-SYSPATH=$PATH
-PATH=""
-for b in $BINLIST ; do
-	PATH=$PATH:$b
-done
-export PATH="$PATH:$SYSPATH"
-
-SYSMANPATH=$MANPATH
-MANPATH=""
-for m in $MANLIST ; do
-	MANPATH=$MANPATH:$m
-done
-export MANPATH="$MANPATH:$SYSMANPATH"
-
 export VISUAL=nano
 export EDITOR=$VISUAL
 export PYTHONSTARTUP=$HOME/.pythonrc
@@ -61,10 +47,7 @@ fi
 ### special cases when we're root
 if [ `/usr/bin/id -u` = 0 ]; then
 	PS1="$HOSTNAME:\w# "
-	for b in $SBINLIST ; do
-		export PATH=$PATH:$b
-	done
-#	export PATH=$PATH:$SBINLIST
+	export PATH=$SPATH:$PATH
 	umask 022
 fi
 
