@@ -8,7 +8,7 @@ export SPATH="/sbin:/usr/sbin:/usr/local/sbin:/opt/*/sbin"
 export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages"
 export GEM_HOME="$(brew --prefix)"
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
-export PUPPETLIB='~/Projects/puppet/modules/'
+export PUPPETLIB='/Users/mnot/Projects/puppet/modules/'
 export saxpath='/usr/local/share/saxon-b/saxon9.jar'
 
 alias l="ls -Fkloh"
