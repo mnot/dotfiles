@@ -14,3 +14,76 @@ export saxpath='/usr/local/share/saxon-b/saxon9.jar'
 alias l="ls -Fkloh"
 alias la="ls -AFkloh"
 alias dnsflush="dscacheutil -flushcache"
+
+
+function parse_git_branch {
+  LIGHTNING_BOLT="⚡"
+  UP_ARROW="↑"
+  DOWN_ARROW="↓"
+  UD_ARROW="↕"
+  FF_ARROW="→"
+  RECYCLE="♺"
+  MIDDOT="•"
+  PLUSMINUS="±"
+
+  branch_pattern="^# On branch ([^${IFS}]*)"
+  remote_pattern_ahead="# Your branch is ahead of"
+  remote_pattern_behind="# Your branch is behind"
+  remote_pattern_ff="# Your branch (.*) can be fast-forwarded."
+  diverge_pattern="# Your branch and (.*) have diverged"
+
+  git_status="$(git status 2> /dev/null)"
+  if [[ ! ${git_status} =~ ${branch_pattern} ]]; then
+    # Rebasing?
+    toplevel=$(git rev-parse --show-toplevel 2> /dev/null)
+    [[ -z "$toplevel" ]] && return
+
+    [[ -d "$toplevel/.git/rebase-merge" || -d "$toplevel/.git/rebase-apply" ]] && {
+      sha_file="$toplevel/.git/rebase-merge/stopped-sha"
+      [[ -e "$sha_file" ]] && {
+        sha=`cat "${sha_file}"`
+      }
+      echo "$(rebase in progress) ${sha}"
+    }
+    return
+  fi
+
+  branch=${BASH_REMATCH[1]}
+
+  # Dirty?
+  if [[ ! ${git_status} =~ "working directory clean" ]]; then
+    [[ ${git_status} =~ "modified:" ]] && {
+      git_is_dirty="${LIGHTNING_BOLT}"
+    }
+
+    [[ ${git_status} =~ "Untracked files" ]] && {
+      git_is_dirty="${git_is_dirty}${MIDDOT}"
+    }
+
+    [[ ${git_status} =~ "new file:" ]] && {
+      git_is_dirty="${git_is_dirty}+"
+    }
+
+    [[ ${git_status} =~ "deleted:" ]] && {
+      git_is_dirty="${git_is_dirty}-"
+    }
+
+    [[ ${git_status} =~ "renamed:" ]] && {
+      git_is_dirty="${git_is_dirty}→"
+    }
+  fi
+
+  # Are we ahead of, beind, or diverged from the remote?
+  if [[ ${git_status} =~ ${remote_pattern_ahead} ]]; then
+    remote="${UP_ARROW}"
+  elif [[ ${git_status} =~ ${remote_pattern_ff} ]]; then
+    remote_ff="$${FF_ARROW}"
+  elif [[ ${git_status} =~ ${remote_pattern_behind} ]]; then
+    remote="${DOWN_ARROW}"
+  elif [[ ${git_status} =~ ${diverge_pattern} ]]; then
+    remote="${UD_ARROW}"
+  fi
+
+  echo "${remote}${remote_ff} (${branch}) ${git_is_dirty}"
+}
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} $(parse_git_branch) \007"'

@@ -22,13 +22,8 @@ shopt -s histappend
 unset http_proxy
 unset ftp_proxy
 
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
 HOSTNAME=`hostname | cut -d "." -f 1`
 PS1="$HOSTNAME:\w> "
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*} ${PWD/$HOME/~} $(parse_git_branch) \007"'
 
 ### completion
 if [ -f /usr/local/etc/bash_completion ] ; then
