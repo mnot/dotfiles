@@ -14,7 +14,7 @@ export saxpath='/usr/local/share/saxon-b/saxon9.jar'
 alias l="ls -Fkloh"
 alias la="ls -AFkloh"
 alias dnsflush="dscacheutil -flushcache"
-alias pstree='ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f -'
+alias pstree="ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f - $@" 
 
 
 function parse_git_branch {
