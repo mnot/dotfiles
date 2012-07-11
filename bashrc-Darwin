@@ -16,6 +16,7 @@ alias la="ls -AFkloh"
 alias dnsflush="dscacheutil -flushcache"
 alias pstree="ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f - $@" 
 alias ldd="otool -L"
+alias plop-view="python -m plop.viewer --datadir=."
 
 function parse_git_branch {
   LIGHTNING_BOLT="⚡"
