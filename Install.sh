@@ -1,6 +1,6 @@
 #!/bin/bash
 
-user=$1 || $USER
+username=$1
 
 srcs=*
 
@@ -8,6 +8,7 @@ for dotfile in $srcs ; do
     if [ $dotfile == 'Install.sh' ] ; then
         continue;
     fi
-    cp -vf ${dotfile} ~${user}/.${dotfile};
-    chown $user ~${user}/.${dotfile};
+    eval target=~${username}/.${dotfile};
+    cp -vf ${dotfile} ${target};
+    chown ${username} ${target};
 done
