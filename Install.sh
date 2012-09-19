@@ -2,6 +2,10 @@
 
 username=$1
 
+if [ ! "$username" ] ; then
+	username=$USER;
+fi
+
 srcs=*
 
 for dotfile in $srcs ; do 
