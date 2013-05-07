@@ -38,6 +38,11 @@ elif [ -f ~/.ssh/known_hosts ] ; then
     complete -o default -W "${SSH_COMPLETE[*]}" scp;
 fi
 
+### lesspipe
+if [ -f /usr/local/bin/lesspipe.sh ] ; then
+    LESSOPEN="|/usr/local/bin/lesspipe.sh %s"; 
+    export LESSOPEN;
+fi
 
 ### special cases when we're root
 if [ `/usr/bin/id -u` = 0 ]; then
