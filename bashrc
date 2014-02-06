@@ -22,7 +22,11 @@ shopt -s histappend
 unset http_proxy
 unset ftp_proxy
 
-HOSTNAME=`hostname | cut -d "." -f 1`
+if [ -f /etc/hostname ] ; then
+  HOSTNAME=`cat /etc/hostname`
+else
+  HOSTNAME=`hostname | cut -d "." -f 1`
+fi
 PS1="$HOSTNAME:\w> "
 
 ### completion
