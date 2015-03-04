@@ -11,6 +11,8 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 export NODE_PATH=/usr/local/lib/node_modules
 export saxpath='/usr/local/share/saxon-b/saxon9.jar'
 
+export SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh
+
 alias l="ls -Fkloh"
 alias la="ls -AFkloh"
 alias dnsflush="dscacheutil -flushcache"
