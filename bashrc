@@ -7,8 +7,10 @@ if [ -f ${HOME}/.bashrc-${OS} ]; then
 fi
 
 if [ -f ${HOME}/.bashrc-local ]; then
-	source $HOME/.bashrc-local
+	source ${HOME}/.bashrc-local
 fi
+
+source ${HOME}/.bash_prompt
 
 export VISUAL=nano
 export EDITOR=$VISUAL
@@ -27,7 +29,7 @@ if [ -f /etc/hostname ] ; then
 else
   HOSTNAME=`hostname | cut -d "." -f 1`
 fi
-PS1="$HOSTNAME:\w> "
+#PS1="$HOSTNAME:\w> "
 
 ### completion
 if [ -f /usr/local/etc/bash_completion ] ; then
@@ -50,7 +52,7 @@ fi
 
 ### special cases when we're root
 if [ `/usr/bin/id -u` = 0 ]; then
-	PS1="$HOSTNAME:\w# "
+#	PS1="$HOSTNAME:\w# "
 	export PATH=$SPATH:$PATH
 	umask 022
 fi
