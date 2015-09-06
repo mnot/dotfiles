@@ -1,6 +1,7 @@
 [user]
     name = Mark Nottingham
     email = mnot@mnot.net
+    signingkey = 3BDEFDDE
 
 [github]
     user = mnot
