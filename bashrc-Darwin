@@ -9,7 +9,7 @@ export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages"
 export GEM_HOME="$(brew --prefix)"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export NODE_PATH=/usr/local/lib/node_modules
-export saxpath='/usr/local/Cellar/saxon/9.8.0.8/libexec/saxon9he.jar'
+export saxpath='/usr/local/Cellar/saxon/9.9.0.1/libexec/saxon9he.jar'
 
 if [ -f "${HOME}/.gpg-agent-info" ]; then
    . "${HOME}/.gpg-agent-info"
