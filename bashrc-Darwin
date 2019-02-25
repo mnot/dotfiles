@@ -1,7 +1,7 @@
 
 umask 002
 
-export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/Applications:/Developer/usr/bin:/opt/*/bin"
+export PATH="/usr/local/bin:/usr/local/share/npm/bin:/usr/local/lib/ruby/gems/bin:$PATH:$HOME/Applications:/Developer/usr/bin:/opt/*/bin"
 export MANPATH="/usr/local/man:$MANPATH:/opt/*/man"
 export SPATH="/sbin:/usr/sbin:/usr/local/sbin:/opt/*/sbin"
 
