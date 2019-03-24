@@ -1,11 +1,11 @@
 {
   "segments": [
-    "virtual_env",
-    "username",
-    "hostname",
     "ssh",
+    "hostname",
+    "username",
     "cwd",
     "newline",
+    "virtual_env",
     "git",
     "jobs",
     "exit_code",
