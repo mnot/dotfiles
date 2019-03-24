@@ -65,3 +65,4 @@ ulimit -c 0	# don't drop core dumps
 alias which="type -path"
 alias f=finger
 alias ls="ls -F"
+alias pip3-upgrade="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
