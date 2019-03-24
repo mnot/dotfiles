@@ -10,8 +10,6 @@ if [ -f ${HOME}/.bashrc-local ]; then
 	source ${HOME}/.bashrc-local
 fi
 
-source ${HOME}/.bash_prompt
-
 export VISUAL=nano
 export EDITOR=$VISUAL
 export PYTHONSTARTUP=$HOME/.pythonrc
@@ -24,12 +22,16 @@ shopt -s histappend
 unset http_proxy
 unset ftp_proxy
 
-if [ -f /etc/hostname ] ; then
-  HOSTNAME=`cat /etc/hostname`
-else
-  HOSTNAME=`hostname | cut -d "." -f 1`
+
+### prompt
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
-#PS1="$HOSTNAME:\w> "
+
 
 ### completion
 if [ -f /usr/local/etc/bash_completion ] ; then
@@ -52,7 +54,6 @@ fi
 
 ### special cases when we're root
 if [ `/usr/bin/id -u` = 0 ]; then
-#	PS1="$HOSTNAME:\w# "
 	export PATH=$SPATH:$PATH
 	umask 022
 fi

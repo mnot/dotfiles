@@ -1,0 +1,14 @@
+{
+  "segments": [
+    "virtual_env",
+    "username",
+    "hostname",
+    "ssh",
+    "cwd",
+    "newline",
+    "git",
+    "jobs",
+    "exit_code",
+    "root"
+  ]
+}

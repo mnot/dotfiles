@@ -6,9 +6,12 @@ if [ ! "$username" ] ; then
 	username=$USER;
 fi
 
-srcs=*
+for place in `find * -type d` ; do
+  eval target=~${username}/.${place};
+  mkdir -vp "${target}";
+done
 
-for dotfile in $srcs ; do 
+for dotfile in `find * -type f` ; do 
     if [ $dotfile == 'Install.sh' ] ; then
         continue;
     fi
