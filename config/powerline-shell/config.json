@@ -10,5 +10,8 @@
     "jobs",
     "exit_code",
     "root"
-  ]
+  ],
+  "hostname": {
+    "colorize": true
+  }
 }
