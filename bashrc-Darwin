@@ -18,6 +18,8 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export SSH_AGENT_PID
 fi
 
+export CLICOLOR=yes
+
 alias l="ls -Fkloh"
 alias la="ls -AFkloh"
 alias dnsflush="dscacheutil -flushcache"

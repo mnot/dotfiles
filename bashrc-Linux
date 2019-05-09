@@ -1,2 +1,2 @@
-alias l='ls -Fkloh'
-alias la='ls -AFkloh'
+alias l='ls -Fkloh --color'
+alias la='ls -AFkloh --color'
