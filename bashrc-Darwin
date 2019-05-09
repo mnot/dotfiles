@@ -18,10 +18,8 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export SSH_AGENT_PID
 fi
 
-export CLICOLOR=yes
-
-alias l="ls -Fkloh"
-alias la="ls -AFkloh"
+alias l="ls -GFoh"
+alias la="ls -GAFlhe"
 alias dnsflush="dscacheutil -flushcache"
 alias pstree="ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f - $@" 
 alias ldd="otool -L"
