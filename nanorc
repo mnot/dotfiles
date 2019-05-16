@@ -6,4 +6,4 @@ set suspend
 set nohelp
 set tabsize 4
 
-include /usr/share/nano/*.nanorc
+include ~/.nano-syntax/*.nanorc
