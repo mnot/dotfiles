@@ -1,3 +1,5 @@
+#!/bin/bash
+
 . $HOME/.bashrc
 
 bind '"\e[5C": forward-word'

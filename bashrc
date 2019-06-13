@@ -1,13 +1,14 @@
+#!/bin/bash
 
 umask 022 # can be overridden locally
 
-OS=`uname`
-if [ -f ${HOME}/.bashrc-${OS} ]; then
-	source ${HOME}/.bashrc-${OS};
+OS=$(uname)
+if [ -f "${HOME}/.bashrc-${OS}" ]; then
+	source "${HOME}/.bashrc-${OS}";
 fi
 
-if [ -f ${HOME}/.bashrc-local ]; then
-	source ${HOME}/.bashrc-local
+if [ -f "${HOME}/.bashrc-local" ]; then
+	source "${HOME}/.bashrc-local"
 fi
 
 export VISUAL=nano
@@ -53,7 +54,7 @@ if [ -f /usr/local/bin/lesspipe.sh ] ; then
 fi
 
 ### special cases when we're root
-if [ `/usr/bin/id -u` = 0 ]; then
+if [ "$(/usr/bin/id -u)" = 0 ]; then
 	export PATH=$SPATH:$PATH
 	umask 022
 fi

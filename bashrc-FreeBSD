@@ -1,2 +1,4 @@
+#!/bin/bash
+
 alias l='ls -Fkloh'
 alias la='ls -AFkloh'
