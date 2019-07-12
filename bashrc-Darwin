@@ -7,7 +7,7 @@ export MANPATH="/usr/local/man:$MANPATH:/opt/*/man"
 export SPATH="/sbin:/usr/sbin:/usr/local/sbin:/opt/*/sbin"
 
 # export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages"
-export GEM_HOME="$(brew --prefix)"
+# export GEM_HOME="$(brew --prefix)"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export NODE_PATH=/usr/local/lib/node_modules
 export saxpath='/usr/local/Cellar/saxon/9.9.0.1/libexec/saxon9he.jar'
