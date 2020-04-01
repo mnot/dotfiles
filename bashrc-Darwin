@@ -8,7 +8,9 @@ export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/Applications:/D
 export MANPATH="/usr/local/man:$MANPATH:/opt/*/man"
 export SPATH="/sbin:/usr/sbin:/usr/local/sbin:/opt/*/sbin"
 
-# export PYTHONPATH="$PYTHONPATH:/Library/Python/2.7/site-packages"
+# GPG SSH
+export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
+gpgconf --launch gpg-agent
 
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/gems/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
@@ -18,13 +20,6 @@ export GEM_HOME="$(brew --prefix)/gems"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export NODE_PATH=/usr/local/lib/node_modules
 export saxpath='/usr/local/Cellar/saxon/9.9.0.1/libexec/saxon9he.jar'
-
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-   . "${HOME}/.gpg-agent-info"
-  export GPG_AGENT_INFO
-  export SSH_AUTH_SOCK
-  export SSH_AGENT_PID
-fi
 
 alias l="ls -GFoh"
 alias la="ls -GAFlhe"
