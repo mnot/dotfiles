@@ -19,7 +19,7 @@ export GEM_HOME="$(brew --prefix)/gems"
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export NODE_PATH=/usr/local/lib/node_modules
-export saxpath='/usr/local/Cellar/saxon/9.9.0.1/libexec/saxon9he.jar'
+export saxpath='/usr/local/Cellar/saxon/10.3/libexec/saxon-he-10.3.jar'
 
 alias l="ls -GFoh"
 alias la="ls -GAFlhe"
