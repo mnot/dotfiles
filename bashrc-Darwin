@@ -2,6 +2,19 @@
 
 umask 002
 
+PACKAGE_DATA=~/.package_data.json
+
+if test ! -s ${PACKAGE_DATA}; then
+    brew info --json saxon openjdk ruby > ${PACKAGE_DATA}
+fi
+
+function package_version {
+    local package="$1"
+    local version
+    version="$( jq -r ".[] | select(.name == \"${package}\").installed[0].version" ${PACKAGE_DATA} )"
+    echo "$version"
+}
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/Applications:/Developer/usr/bin:/opt/*/bin"
@@ -15,11 +28,12 @@ gpgconf --launch gpg-agent
 # Ruby
 export PATH="/usr/local/opt/ruby/bin:/usr/local/gems/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-export GEM_HOME="$(brew --prefix)/gems"
+export GEM_HOME="/usr/local/gems"
 
 # Java
-export JAVA_HOME="$(/usr/libexec/java_home)"
-sax_version="$(brew info --json saxon | jq -r '.[0].installed[0].version')"
+java_version="$(package_version 'openjdk')"
+export JAVA_HOME="/usr/local/Cellar/openjdk/${java_version}/libexec/openjdk.jdk/Contents/Home"
+sax_version="$(package_version 'saxon')"
 export saxpath="/usr/local/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax_version}.jar"
 
 # NodeJS
@@ -29,7 +43,7 @@ export NODE_PATH=/usr/local/lib/node_modules
 alias l="ls -GFoh"
 alias la="ls -GAFlhe"
 alias dnsflush="dscacheutil -flushcache"
-alias pstree="ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f - $@" 
+alias pstree="ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f -"
 alias ldd="otool -L"
 alias plop-view="python -m plop.viewer --datadir=."
 
