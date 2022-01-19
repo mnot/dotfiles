@@ -1,6 +1,17 @@
 #!/bin/bash
 
+
+
 umask 002
+
+# OSX
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Applications"  # known starting point
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Homebrew
+export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
+export MANPATH="/opt/homebrew/manpages:$MANPATH"
+export SPATH="/opt/homebrew/sbin:$SPATH"
 
 PACKAGE_DATA=~/.package_data.json
 
@@ -15,20 +26,14 @@ function package_version {
     echo "$version"
 }
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$HOME/Applications:/Developer/usr/bin:/opt/*/bin"
-export MANPATH="/usr/local/man:$MANPATH:/opt/*/man"
-export SPATH="/sbin:/usr/sbin:/usr/local/sbin:/opt/*/sbin"
-
 # GPG SSH
 export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 gpgconf --launch gpg-agent
 
 # Ruby
-export PATH="/usr/local/opt/ruby/bin:/usr/local/gems/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-export GEM_HOME="/usr/local/gems"
+export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+export GEM_HOME="/opt/homebrew/lib/ruby/gems/"
 
 # Java
 java_version="$(package_version 'openjdk')"
@@ -37,7 +42,8 @@ sax_version="$(package_version 'saxon')"
 export saxpath="/usr/local/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax_version}.jar"
 
 # NodeJS
-export NODE_PATH=/usr/local/lib/node_modules
+export NODE_PATH=/opt/homebrew/lib/node_modules
+# export PATH="$PATH:/usr/local/share/npm/bin"
 
 # Aliases
 alias l="ls -GFoh"
