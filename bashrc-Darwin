@@ -37,9 +37,9 @@ export GEM_HOME="/opt/homebrew/lib/ruby/gems/"
 
 # Java
 java_version="$(package_version 'openjdk')"
-export JAVA_HOME="/usr/local/Cellar/openjdk/${java_version}/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/${java_version}/libexec/openjdk.jdk/Contents/Home"
 sax_version="$(package_version 'saxon')"
-export saxpath="/usr/local/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax_version}.jar"
+export saxpath="/opt/homeboew/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax_version}.jar"
 
 # NodeJS
 export NODE_PATH=/opt/homebrew/lib/node_modules
