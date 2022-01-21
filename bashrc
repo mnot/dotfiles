@@ -2,6 +2,8 @@
 
 umask 022 # can be overridden locally
 
+export LOCAL=/usr/local
+
 OS=$(uname)
 if [ -f "${HOME}/.bashrc-${OS}" ]; then
 	source "${HOME}/.bashrc-${OS}";
@@ -45,9 +47,9 @@ fi
 
 
 ### completion
-if [ -f /usr/local/etc/bash_completion ] ; then
+if [ -f "${LOCAL}/etc/bash_completion" ] ; then
         # Source completion code
-        . /usr/local/etc/bash_completion  2>/dev/null;
+        . ${LOCAL}/etc/bash_completion  2>/dev/null;
 elif [ -f ~/.ssh/known_hosts ] ; then
     SSH_COMPLETE=( $(cat ~/.ssh/known_hosts | \
                  cut -f 1 -d ' ' | \
@@ -58,8 +60,8 @@ elif [ -f ~/.ssh/known_hosts ] ; then
 fi
 
 ### lesspipe
-if [ -f /usr/local/bin/lesspipe.sh ] ; then
-    LESSOPEN="|/usr/local/bin/lesspipe.sh %s"; 
+if [ -f "${LOCAL}/bin/lesspipe.sh" ] ; then
+    LESSOPEN="|${LOCAL}/bin/lesspipe.sh %s";
     export LESSOPEN;
 fi
 

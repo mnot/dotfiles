@@ -4,14 +4,16 @@
 
 umask 002
 
+export LOCAL=/opt/homebrew
+
 # OSX
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Applications"  # known starting point
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Homebrew
-export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
-export MANPATH="/opt/homebrew/manpages:$MANPATH"
-export SPATH="/opt/homebrew/sbin:$SPATH"
+export PATH="${LOCAL}/sbin:${LOCAL}/bin:$PATH"
+export MANPATH="${LOCAL}/manpages:$MANPATH"
+export SPATH="${LOCAL}/sbin:$SPATH"
 
 PACKAGE_DATA=~/.package_data.json
 
@@ -31,18 +33,18 @@ export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 gpgconf --launch gpg-agent
 
 # Ruby
-export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/bin:$PATH"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
-export GEM_HOME="/opt/homebrew/lib/ruby/gems/"
+export PATH="${LOCAL}/opt/ruby/bin:${LOCAL}/lib/ruby/gems/bin:$PATH"
+export PKG_CONFIG_PATH="${LOCAL}/opt/ruby/lib/pkgconfig"
+export GEM_HOME="${LOCAL}/lib/ruby/gems/"
 
 # Java
 java_version="$(package_version 'openjdk')"
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk/${java_version}/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="${LOCAL}/Cellar/openjdk/${java_version}/libexec/openjdk.jdk/Contents/Home"
 sax_version="$(package_version 'saxon')"
 export saxpath="/opt/homeboew/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax_version}.jar"
 
 # NodeJS
-export NODE_PATH=/opt/homebrew/lib/node_modules
+export NODE_PATH="${LOCAL}/lib/node_modules"
 # export PATH="$PATH:/usr/local/share/npm/bin"
 
 # Aliases
