@@ -1,0 +1,34 @@
+set folder = "~/.mail"
+
+set move = no
+
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+set imap_check_subscribed
+
+# Colors
+
+color normal brightwhite default
+color hdrdefault white default
+color attachment yellow default
+
+color header brightwhite default "From: "
+color header brightwhite default "Subject: "
+
+color quoted green default
+color quoted1 cyan default
+color quoted2 green default
+color quoted3 cyan default
+
+color error brightred default           
+color message brightwhite default                            
+color indicator brightwhite white   # indicator for the "current message"
+color status brightwhite blue       # status lines in the folder index sed for the mini-help line
+color tree white default            # the "tree" display of threads within the folder index
+color search white blue             # search matches found with search within the internal pager
+color markers red default           # The markers indicate a wrapped line hen showing messages with looong lines
+
+color index white default  '~O'
+color index white default '~N'
+color index brightred default '~F' # Flagged Messages are important!
+color index blue default '~D' # Deleted Mails - use dark color as these are already "dealt with"
