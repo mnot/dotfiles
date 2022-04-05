@@ -63,6 +63,9 @@ fi
 if [ -f "${LOCAL}/bin/lesspipe.sh" ] ; then
     LESSOPEN="|${LOCAL}/bin/lesspipe.sh %s";
     export LESSOPEN;
+elif [ -f "/usr/bin/lesspipe.sh" ] ; then
+    LESSOPEN="|/usr/bin/lesspipe.sh %s";
+    export LESSOPEN;
 fi
 
 ### special cases when we're root
