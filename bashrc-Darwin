@@ -52,7 +52,6 @@ export NODE_PATH="${LOCAL}/lib/node_modules"
 alias l="ls -GFoh"
 alias la="ls -GAFlhe"
 alias dnsflush="dscacheutil -flushcache"
-alias pstree="ps -axwwco user,pid,ppid,pgid,command | /usr/local/bin/pstree -f -"
 alias ldd="otool -L"
 alias plop-view="python -m plop.viewer --datadir=."
 
