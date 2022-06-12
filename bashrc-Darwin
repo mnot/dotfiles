@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-
 umask 002
+ulimit -n 8192
 
 export LOCAL=/opt/homebrew
 
