@@ -15,7 +15,10 @@ fi
 
 export VISUAL=nano
 export EDITOR=$VISUAL
+
 export PYTHONSTARTUP=$HOME/.pythonrc
+export PIP_REQUIRE_VIRTUALENV=true
+
 export COLORFGBG="white;black"
 export LESS="-x4 -R"
 export HISTCONTROL=erasedups
