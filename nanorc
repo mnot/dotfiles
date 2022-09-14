@@ -1,9 +1,13 @@
-set nowrap
-set historylog
+set atblanks
 unset backup
-#set auto-indent
-set suspend
+set historylog
+set minibar
+set mouse
 set nohelp
+set positionlog
+set smarthome
+set softwrap
 set tabsize 4
+set zero
 
 include ~/.nano-syntax/*.nanorc
