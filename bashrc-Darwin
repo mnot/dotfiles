@@ -32,6 +32,10 @@ function package_version {
 export SSH_AUTH_SOCK="$HOME/.gnupg/S.gpg-agent.ssh"
 gpgconf --launch gpg-agent
 
+# Python
+python_dir="$( jq -r ".[] | select(.aliases | index( \"python\" )) | .name" ${PACKAGE_DATA} )"
+export PATH="${LOCAL}/opt/${python_dir}/libexec/bin:$PATH"
+
 # Ruby
 export PATH="${LOCAL}/opt/ruby/bin:${LOCAL}/lib/ruby/gems/bin:$PATH"
 export PKG_CONFIG_PATH="${LOCAL}/opt/ruby/lib/pkgconfig"
