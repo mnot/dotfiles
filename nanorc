@@ -8,6 +8,7 @@ set positionlog
 set smarthome
 set softwrap
 set tabsize 4
+set titlecolor normal,normal
 set zero
 
 include ~/.nano-syntax/*.nanorc
