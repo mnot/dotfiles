@@ -1,4 +1,6 @@
 #!/bin/bash
 
+export PATH="$PATH:$HOME/.local/bin"
+
 alias l='ls -Foh --color=auto'
 alias la='ls -AFlh --color=auto'

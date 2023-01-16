@@ -7,7 +7,7 @@ ulimit -n 8192
 export LOCAL=/opt/homebrew
 
 # OSX
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Applications"  # known starting point
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Applications:$HOME/.local/bin"  # known starting point
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # Homebrew
