@@ -62,6 +62,8 @@ elif [ -f ~/.ssh/known_hosts ] ; then
     complete -o default -W "${SSH_COMPLETE[*]}" scp;
 fi
 
+eval "$(register-python-argcomplete pipx)"
+
 ### lesspipe
 if [ -f "${LOCAL}/bin/lesspipe.sh" ] ; then
     LESSOPEN="|${LOCAL}/bin/lesspipe.sh %s";
