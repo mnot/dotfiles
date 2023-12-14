@@ -1,10 +1,50 @@
-set folder = "~/.mail"
+# General
 
 set move = no
 
-set sort = 'threads'
+set index_format = "%Z %{%b %d} %-18.18L (%?l?%4l&%4c?) %s"
+set sort = 'reverse-threads'
 set sort_aux = 'last-date-received'
+set attach_save_dir = /Users/mnot/Downloads/
+set sidebar_visible
+set sidebar_format = "%B%*  %?F? "
+set mail_check_stats
+
+# PGP
+
+set crypt_use_gpgme
+set crypt_verify_sig
+set pgp_auto_decode
+set crypt_replysign
+set crypt_replyencrypt
+set crypt_replysignencrypted
+set crypt_use_pka
+
+# IMAP
+
+set imap_pass = `op item get mutt --fields password`
+set smtp_pass = $imap_pass
+
+set folder = "imaps://imap.fastmail.com/
+set spoolfile = "+INBOX"
+set imap_user = mnot@mnot.net
+set from = "mnot@mnot.net"
+set smtp_url = "smtps://mnot@mnot.net@smtp.fastmail.com/"
+set smtp_authenticators = "login"
+set record = +Sent
+set mail_check=300
+set timeout=15
 set imap_check_subscribed
+set imap_deflate
+set imap_idle
+
+set header_cache = /Users/mnot/.cache/mutt/
+#set body_cache = /Users/mnot/.cache/mutt/
+
+# Bindings
+bind index,pager <left> sidebar-prev
+bind index,pager <right> sidebar-next
+bind index,pager <tab> sidebar-open
 
 # Colors
 
