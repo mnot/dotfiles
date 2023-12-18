@@ -50,7 +50,16 @@ export saxpath="/opt/homebrew/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax
 
 # NodeJS
 export NODE_PATH="${LOCAL}/lib/node_modules"
-# export PATH="$PATH:/usr/local/share/npm/bin"
+
+function npm_cleanup () {
+	rm -f $HOME/.npmrc
+}
+
+function npm_auth () {
+	op inject -f -i $HOME/.config/op/npm.tpl -o $HOME/.npmrc
+	trap npm_cleanup EXIT ERR INT TERM
+	npm $*
+}
 
 # 1Password integrations
 source /Users/mnot/.config/op/plugins.sh
