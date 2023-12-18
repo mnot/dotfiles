@@ -52,6 +52,9 @@ export saxpath="/opt/homebrew/Cellar/saxon/${sax_version}/libexec/saxon-he-${sax
 export NODE_PATH="${LOCAL}/lib/node_modules"
 # export PATH="$PATH:/usr/local/share/npm/bin"
 
+# 1Password integrations
+source /Users/mnot/.config/op/plugins.sh
+
 # Aliases
 alias l="ls -GFoh"
 alias la="ls -GAFlhe"
