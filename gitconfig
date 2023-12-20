@@ -19,3 +19,5 @@
     default = current
 [init]
     defaultBranch = main
+[pull]
+	rebase = true
