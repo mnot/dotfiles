@@ -18,7 +18,7 @@ export SPATH="${LOCAL}/sbin:$SPATH"
 PACKAGE_DATA=~/.package_data.json
 
 if test ! -s ${PACKAGE_DATA}; then
-    brew info --json saxon openjdk ruby > ${PACKAGE_DATA}
+    brew info --json saxon openjdk ruby python > ${PACKAGE_DATA}
 fi
 
 function package_version {
