@@ -19,5 +19,6 @@ Host *
     PasswordAuthentication no
     PubkeyAuthentication yes
     ForwardX11 no
-
+    ServerAliveInterval 20
+    TCPKeepAlive no
 
