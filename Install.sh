@@ -8,7 +8,7 @@ fi
 
 for place in `find * -type d` ; do
   eval target=~${username}/.${place};
-  mkdir -vp "${target}";
+  mkdir -vp -m go-rwx "${target}";
 done
 
 for dotfile in `find * -type f` ; do 
@@ -17,5 +17,6 @@ for dotfile in `find * -type f` ; do
     fi
     eval target=~${username}/.${dotfile};
     cp -vf ${dotfile} ${target};
+    chmod go-rwx ${target};
     chown ${username} ${target};
 done
