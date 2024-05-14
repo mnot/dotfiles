@@ -3,10 +3,6 @@ Host heavy-messing.local
     PasswordAuthentication yes
     User mnot@mnot.net
 
-Host *.local
-	PasswordAuthentication yes
-	User mnot
-
 Host *
     Protocol 2
     User mnot
