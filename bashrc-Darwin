@@ -6,6 +6,11 @@ ulimit -n 8192
 
 export LOCAL=/opt/homebrew
 
+# Ghostty
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
+
 # OSX
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/Applications:$HOME/.local/bin"  # known starting point
 export BASH_SILENCE_DEPRECATION_WARNING=1
