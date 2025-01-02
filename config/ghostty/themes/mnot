@@ -1,0 +1,14 @@
+font-family = "Berkeley Mono"
+font-size = 11
+window-inherit-font-size = false
+
+window-height = 35
+window-width = 80
+
+background = #000000
+background-opacity = 0.9
+
+window-inherit-working-directory = false
+working-directory = /Users/mnot/Projects
+shell-integration = bash
+shell-integration-features = cursor,title
