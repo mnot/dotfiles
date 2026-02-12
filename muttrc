@@ -22,7 +22,7 @@ set crypt_use_pka
 
 # IMAP
 
-set imap_pass = `op item get mutt --fields password`
+set imap_pass = `op item get mutt --reveal --fields password`
 set smtp_pass = $imap_pass
 
 set folder = "imaps://imap.fastmail.com/
